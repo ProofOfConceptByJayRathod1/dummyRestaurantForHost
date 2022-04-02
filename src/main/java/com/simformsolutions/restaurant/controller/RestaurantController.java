@@ -60,6 +60,14 @@ public class RestaurantController {
 		return new ResponseEntity<Restaurant>(restaurantRepo.findById(id).orElse(null),  HttpStatus.OK);
 		
 	}
+//	
+//	@RequestMapping(value = "/getTable" ,method = RequestMethod.GET)
+//	public ResponseEntity<List<DiningTable>> getAllTableDetails()
+//	{
+//		//return new ResponseEntity<Restaurant>(restaurantRepo.findTablesById(restaurant.getRestaurantId()),HttpStatus.OK);
+//		return new ResponseEntity<List<DiningTable>>(tableRepo.findAll(),  HttpStatus.OK);
+//		
+//	}
 	
 	@RequestMapping(value = "/settabledetails" ,method = RequestMethod.POST)
 	public ResponseEntity<DiningTable> postTableDetails(@RequestBody DiningTable diningTable)
@@ -75,6 +83,13 @@ public class RestaurantController {
 		//return new ResponseEntity<Restaurant>(restaurantRepo.findTablesById(restaurant.getRestaurantId()),HttpStatus.OK);
 		return new ResponseEntity<Menu>(menuRepo.save(menu),  HttpStatus.CREATED);
 		
+	}
+	
+	@RequestMapping(value = "/getmenu" ,method = RequestMethod.GET)
+	public  ResponseEntity<List<Menu>> getMenu(){
+		
+		return new ResponseEntity<List<Menu>>(menuRepo.findAll() , HttpStatus.OK);
+		 
 	}
 	
 	@RequestMapping(value = "/addorder" ,method = RequestMethod.POST)
