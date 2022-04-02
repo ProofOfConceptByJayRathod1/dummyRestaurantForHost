@@ -33,7 +33,7 @@ public class RestaurantController {
 	public ResponseEntity<Restaurant> getTableDetails(@PathVariable("id") long id)
 	{
 		//return new ResponseEntity<Restaurant>(restaurantRepo.findTablesById(restaurant.getRestaurantId()),HttpStatus.OK);
-		return new ResponseEntity<Restaurant>(restaurantRepo.findById(id).orElseThrow(),  HttpStatus.OK);
+		return new ResponseEntity<Restaurant>(restaurantRepo.findById(id).orElse(null),  HttpStatus.OK);
 		
 	}
 }
