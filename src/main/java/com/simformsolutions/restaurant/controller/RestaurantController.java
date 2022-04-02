@@ -21,6 +21,7 @@ import com.simformsolutions.restaurant.model.Menu;
 
 import com.simformsolutions.restaurant.model.DiningTable;
 import com.simformsolutions.restaurant.model.Feedback;
+import com.simformsolutions.restaurant.repository.CustomerRepo;
 import com.simformsolutions.restaurant.repository.FeedbackRepo;
 import com.simformsolutions.restaurant.repository.MenuRepo;
 import com.simformsolutions.restaurant.repository.OrdersRepo;
@@ -42,6 +43,8 @@ public class RestaurantController {
 	private OrdersRepo ordersRepo;	
 	@Autowired
 	private FeedbackRepo feedbackRepo;	
+	@Autowired
+	private CustomerRepo customerRepo;
 	//get list of Restaurants only
 	@RequestMapping(value = "/allrestaurant" ,method = RequestMethod.GET)
 	public  ResponseEntity<List<Restaurant>> allRestaurant(){
@@ -89,6 +92,16 @@ public class RestaurantController {
 		return new ResponseEntity<Feedback>(feedbackRepo.save(feedback),  HttpStatus.CREATED);
 		
 	}
+	
+
+	
+	
+	@RequestMapping(value = "/showcustomers" ,method = RequestMethod.GET)
+	public List<Customer> getAllCustomers(){
+		return customerRepo.findAll();
+	}
+	
+	
 	
 	
 	@RequestMapping(value = "/addrestaurant" ,method = RequestMethod.POST)
