@@ -30,6 +30,22 @@ public class Customer {
 	private List<Orders> customerOrders;
 	
 	
+	public List<Feedback> getCustomerFeedbacks() {
+		return customerFeedbacks;
+	}
+
+	public void setCustomerFeedbacks(List<Feedback> customerFeedbacks) {
+		this.customerFeedbacks = customerFeedbacks;
+	}
+
+	public List<Orders> getCustomerOrders() {
+		return customerOrders;
+	}
+
+	public void setCustomerOrders(List<Orders> customerOrders) {
+		this.customerOrders = customerOrders;
+	}
+
 	public long getCustomerId() {
 		return customerId;
 	}
