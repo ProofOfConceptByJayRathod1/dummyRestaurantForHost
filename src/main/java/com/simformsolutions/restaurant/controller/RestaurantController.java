@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.simformsolutions.restaurant.model.Customer;
@@ -36,4 +37,18 @@ public class RestaurantController {
 		return new ResponseEntity<Restaurant>(restaurantRepo.findById(id).orElse(null),  HttpStatus.OK);
 		
 	}
+	
+	
+	@RequestMapping(value = "/addrestaurant" ,method = RequestMethod.POST)
+	public ResponseEntity<Restaurant> postRestaurantData(@RequestBody Restaurant restaurant)
+	{
+		
+		;
+		//return new ResponseEntity<Restaurant>(restaurantRepo.findTablesById(restaurant.getRestaurantId()),HttpStatus.OK);
+		return new ResponseEntity<Restaurant>(restaurantRepo.save(restaurant),  HttpStatus.CREATED);
+		
+	}
+	
+	
+	
 }
