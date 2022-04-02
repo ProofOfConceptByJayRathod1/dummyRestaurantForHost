@@ -36,6 +36,10 @@ public class Menu{
 		this.buyFrequency = buyFrequency;
 	}
 
+	public Menu() {
+		super();
+	}
+
 	public void setMenuId(long menuId) {
 		this.menuId = menuId;
 	}
