@@ -83,6 +83,10 @@ public class Customer {
 		this.email = email;
 		this.password = password;
 	}
+
+	public Customer() {
+		super();
+	}
 	
 	
 }

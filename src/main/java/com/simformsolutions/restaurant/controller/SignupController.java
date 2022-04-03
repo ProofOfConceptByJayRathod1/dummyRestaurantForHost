@@ -22,4 +22,10 @@ public class SignupController {
 		Customer c = new Customer(name,email,password);
 		return new ResponseEntity<Customer>(customerRepo.save(c),HttpStatus.CREATED);
 	}
+	
+
+	
+	
+	
+	
 }
