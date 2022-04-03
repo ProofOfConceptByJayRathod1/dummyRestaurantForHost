@@ -25,11 +25,11 @@ public class LoginController {
 		Customer customer1= customerRepo.findByEmail(email);
 		if(customer1 != null && (password.equals(customer1.getPassword())))
 		{
-			return new ResponseEntity<String>("Login Successfull..!!", HttpStatus.OK);
+			return new ResponseEntity<String>("this" + email + "and" + password + "matched", HttpStatus.OK);
 		}
 		else
 		{
-			return new ResponseEntity<String>("Wrong login credentials.", HttpStatus.UNAUTHORIZED);
+			return new ResponseEntity<String>("this" + email + "and" + password + "did not matched", HttpStatus.UNAUTHORIZED);
 		}
 
 		

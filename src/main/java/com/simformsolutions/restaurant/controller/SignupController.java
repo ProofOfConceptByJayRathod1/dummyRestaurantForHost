@@ -3,7 +3,10 @@ package com.simformsolutions.restaurant.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 import com.simformsolutions.restaurant.model.Customer;
 import com.simformsolutions.restaurant.repository.CustomerRepo;
@@ -17,15 +20,8 @@ public class SignupController {
 	CustomerRepo customerRepo;
 	
 	@PostMapping("/signup")
-	public ResponseEntity<Customer> saveStudent( @RequestParam("name") String name, @RequestParam("email") String email,@RequestParam("password") String password)
+	public ResponseEntity<Customer> saveStudent( @RequestBody Customer customer)
 	{
-		Customer c = new Customer(name,email,password);
-		return new ResponseEntity<Customer>(customerRepo.save(c),HttpStatus.CREATED);
+		return new ResponseEntity<Customer>(customerRepo.save(customer),HttpStatus.CREATED);
 	}
-	
-
-	
-	
-	
-	
 }
